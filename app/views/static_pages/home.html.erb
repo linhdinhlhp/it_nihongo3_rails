@@ -1,0 +1,19 @@
+
+
+  <% if user_signed_in? %>
+      <p>こんにちわ, <%= current_user.email %></p>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "サインイン", new_user_session_path %>
+      <%= link_to "ユーザ登録", new_user_registration_path %>
+    <% end %>
+    <hr>      
+    <%= yield %>
+<h1>HOME PAGE</h1>
+<!-- root の変更:routes.rb を編集
+• ログイン状態の取得:user_signed_in
+• ログインユーザの情報を取得:current_user
+• サインアウト処理:destroy_user_session_path
+• サインイン処理:new_user_session_path
+• ユーザ登録:new_user_registration_path -->
+ 
